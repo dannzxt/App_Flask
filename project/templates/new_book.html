@@ -1,0 +1,35 @@
+{% extends 'heading.html' %} {% block title %} Cadastro de Livro {% endblock
+title %} {% block content %}
+<h2 class="text-center">Cadastrar Livro</h2>
+<hr />
+<form action="{{url_for('add_book')}}" method="POST" class="form-group">
+  <label for="title">Título</label>
+  <input
+    class="form-control"
+    type="text"
+    name="title"
+    id="title"
+    placeholder="Título do Livro"
+    required
+  />
+  <label for="description">Descrição</label>
+  <input
+    class="form-control"
+    type="text"
+    name="description"
+    id="description"
+    placeholder="Descrição do Livro"
+    required
+  />
+  <label for="price">Preço</label>
+  <input
+    class="form-control"
+    type="number"
+    name="price"
+    id="price"
+    placeholder="Preço do Livro"
+    required
+  />
+  <button class="btn btn-success">Adicionar</button>
+</form>
+{% endblock content %}

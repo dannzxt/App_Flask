@@ -1,0 +1,30 @@
+{% extends 'heading.html' %} {% block title %} Filmes {% endblock title %} {%
+block content %}
+<h2 class="text-center">Lista de Filmes</h2>
+<hr />
+<div class="row">
+  {% for movie in movies %}
+  <div class="col-md-3">
+    <div class="card" style="width: 18rem">
+      <img
+        class="card-img-top"
+        src="http://image.tmdb.org/t/p/w500{{movie['poster_path']}}"
+        alt=""
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{movie["title"]}}</h5>
+        <p class="card-text">{{movie["overview"]}}</p>
+        <hr />
+        <h4>
+          Nota Média
+          <span class="badge bg-secondary">
+            {{ movie["vote_average"] | round(1) }}
+          </span>
+        </h4>
+      </div>
+    </div>
+    <br />
+  </div>
+  {% endfor %}
+</div>
+{%endblock content %}

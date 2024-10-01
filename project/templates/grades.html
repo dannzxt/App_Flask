@@ -1,0 +1,29 @@
+{% extends 'heading.html' %} {% block title %} Notas da Turma {% endblock title
+%} {% block content %}
+<h2 style="text-align: center">Notas dos Alunos</h2>
+<hr />
+<form class="form-group" action="{{url_for('grades')}}" method="POST">
+  <label for="name">Aluno</label>
+  <input class="form-control" type="text" name="name" id="name" required />
+  <label for="grade">Nota</label>
+  <input class="form-control" type="text" name="grade" id="grade" required />
+  <button class="btn btn-success">Adicionar</button>
+</form>
+<br />
+{% for student in grades %}
+<p>
+  <a
+    class="btn btn-secondary"
+    data-bs-toggle="collapse"
+    href="#collapse_{{student['name']}}"
+    role="button"
+    aria-expanded="false"
+    aria-controls="collapse_{{student['name']}}"
+  >
+    {{student["name"]}}
+  </a>
+</p>
+<div class="collapse" id="collapse_{{student['name']}}">
+  <div class="card card-body">{{student["grade"]}}</div>
+</div>
+{% endfor %} {% endblock content %}

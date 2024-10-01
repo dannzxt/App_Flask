@@ -1,0 +1,16 @@
+{% extends 'heading.html' %} {% block title %} Teste Flask {% endblock title %}
+{% block content %}
+<h2 style="text-align: center">Integrando HTML ao Flask</h2>
+<hr />
+<form class="form-group" action="{{url_for('home')}}" method="POST">
+  <label for="content">Conteúdo</label>
+  <input class="form-control" type="text" name="content" id="content" />
+  <button class="btn btn-success">Adicionar</button>
+</form>
+<br />
+<ol class="list-group list-group-numbered">
+  {% for content in contents %}
+  <li class="list-group-item">{{content}}</li>
+  {% endfor %}
+</ol>
+{% endblock content %}
